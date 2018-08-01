@@ -1,0 +1,1795 @@
+<?xml version="1.0"?><OWASPZAPReport version="2.7.0" generated="Wed, 18 Jul 2018 14:47:37">
+<site name="http://r1---sn-aigzrn7l.gvt1.com" host="r1---sn-aigzrn7l.gvt1.com" port="80" ssl="false"><alerts></alerts></site><site name="http://redirector.gvt1.com" host="redirector.gvt1.com" port="80" ssl="false"><alerts></alerts></site><site name="http://localhost:9250" host="localhost" port="9250" ssl="false"><alerts><alertitem>
+  <pluginid>10010</pluginid>
+  <alert>Cookie No HttpOnly Flag</alert>
+  <name>Cookie No HttpOnly Flag</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://localhost:9250/contact/switch-to-english</uri>
+  <method>GET</method>
+  <param>PLAY_LANG</param>
+  <evidence>Set-Cookie: PLAY_LANG</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9250/contact/switch-to-welsh</uri>
+  <method>GET</method>
+  <param>PLAY_LANG</param>
+  <evidence>Set-Cookie: PLAY_LANG</evidence>
+  </instance>
+  </instances>
+  <count>2</count>
+  <solution>&lt;p&gt;Ensure that the HttpOnly flag is set for all cookies.&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;http://www.owasp.org/index.php/HttpOnly&lt;/p&gt;</reference>
+  <cweid>16</cweid>
+  <wascid>13</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+</alerts></site><site name="http://cdn.optimizely.com" host="cdn.optimizely.com" port="80" ssl="false"><alerts></alerts></site><site name="http://localhost:9310" host="localhost" port="9310" ssl="false"><alerts><alertitem>
+  <pluginid>10021</pluginid>
+  <alert>X-Content-Type-Options Header Missing</alert>
+  <name>X-Content-Type-Options Header Missing</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &apos;nosniff&apos;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://localhost:9310/template/assets/stylesheets/govuk-template-ie8.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/images/apple-touch-icon-114x114.png</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/images/open-government-licence_2x.png</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/javascripts/ie.js</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/images/apple-touch-icon-144x144.png</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/stylesheets/govuk-template-ie6.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/stylesheets/govuk-template.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/images/gov.uk_logotype_crown.png</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/stylesheets/govuk-template-ie7.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/stylesheets/govuk-template-print.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/images/apple-touch-icon-57x57.png</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/stylesheets/fonts.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/images/apple-touch-icon-72x72.png</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9310/template/assets/images/favicon.ico</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  </instances>
+  <count>14</count>
+  <solution>&lt;p&gt;Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &apos;nosniff&apos; for all web pages.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.&lt;/p&gt;</solution>
+  <otherinfo>&lt;p&gt;This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.&lt;/p&gt;&lt;p&gt;At &quot;High&quot; threshold this scanner will not alert on client or server error responses.&lt;/p&gt;</otherinfo>
+  <reference>&lt;p&gt;http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx&lt;/p&gt;&lt;p&gt;https://www.owasp.org/index.php/List_of_useful_HTTP_headers&lt;/p&gt;</reference>
+  <cweid>16</cweid>
+  <wascid>15</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+</alerts></site><site name="http://localhost:9230" host="localhost" port="9230" ssl="false"><alerts><alertitem>
+  <pluginid>10017</pluginid>
+  <alert>Cross-Domain JavaScript Source File Inclusion</alert>
+  <name>Cross-Domain JavaScript Source File Inclusion</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;The page includes one or more script files from a third-party domain.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/assets/stylesheets</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/tax-free-allowance</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/sitemap.xml</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/assets/images</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/what-do-you-want-to-do</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/help/cookies</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/assets</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/assets/javascript</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/income/bank-building-society-savings</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/help/terms-and-conditions</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/robots.txt</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/help/privacy</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/paye-income-tax-estimate</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/income/bank-building-society-savings/accounts</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/income-summary</uri>
+  <method>GET</method>
+  <param>//cdn.optimizely.com/js/8461600066.js</param>
+  <evidence>&lt;script src=&quot;//cdn.optimizely.com/js/8461600066.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</evidence>
+  </instance>
+  </instances>
+  <count>18</count>
+  <solution>&lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can&apos;t be controlled by end users of the application.&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;&lt;/p&gt;</reference>
+  <cweid>829</cweid>
+  <wascid>15</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>30002</pluginid>
+  <alert>Format String Error</alert>
+  <name>Format String Error</name>
+  <riskcode>2</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Medium (Medium)</riskdesc>
+  <desc>&lt;p&gt;A Format String error occurs when the submitted data of an input string is evaluated as a command by the application. &lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/what-do-you-want-to-do</uri>
+  <method>POST</method>
+  <param>taxYears</param>
+  <attack>ZAP%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s
+</attack>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/what-do-you-want-to-do?query=ZAP%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%0A</uri>
+  <method>POST</method>
+  <param>query</param>
+  <attack>ZAP%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s
+</attack>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/income/bank-building-society-savings/accounts?query=ZAP%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%0A</uri>
+  <method>GET</method>
+  <param>query</param>
+  <attack>ZAP%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s
+</attack>
+  </instance>
+  <instance>
+  <uri>http://localhost:9230/check-income-tax/income/bank-building-society-savings?query=ZAP%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%25n%25s%0A</uri>
+  <method>GET</method>
+  <param>query</param>
+  <attack>ZAP%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s%n%s
+</attack>
+  </instance>
+  </instances>
+  <count>4</count>
+  <solution>&lt;p&gt;Rewrite the background program using proper deletion of bad character strings.  This will require a recompile of the background executable.&lt;/p&gt;</solution>
+  <otherinfo>&lt;p&gt;Potential Format String Error.  The script closed the connection on a /%s&lt;/p&gt;</otherinfo>
+  <reference>&lt;p&gt;https://www.owasp.org/index.php/Format_string_attack&lt;/p&gt;</reference>
+  <cweid>134</cweid>
+  <wascid>6</wascid>
+  <sourceid>1</sourceid>
+</alertitem>
+</alerts></site><site name="http://localhost:9232" host="localhost" port="9232" ssl="false"><alerts></alerts></site><site name="http://localhost:9032" host="localhost" port="9032" ssl="false"><alerts><alertitem>
+  <pluginid>10021</pluginid>
+  <alert>X-Content-Type-Options Header Missing</alert>
+  <name>X-Content-Type-Options Header Missing</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &apos;nosniff&apos;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://localhost:9032/assets/2.254.0/stylesheets/application.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/3.2.3/javascripts/application.min.js</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.254.0/javascripts/application.min.js</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.254.0/javascripts/vendor/modernizr.js</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.147.0/stylesheets/application-ie.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/3.2.3/stylesheets/application-ie.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.147.0/javascripts/application.min.js</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.147.0/stylesheets/application.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/3.2.3/stylesheets/application.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/3.2.3/stylesheets/application-ie7.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.254.0/stylesheets/application-ie7.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/3.2.3/javascripts/vendor/modernizr.js</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.147.0/javascripts/vendor/modernizr.js</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.147.0/stylesheets/application-ie7.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://localhost:9032/assets/2.254.0/stylesheets/application-ie.min.css</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  </instances>
+  <count>15</count>
+  <solution>&lt;p&gt;Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &apos;nosniff&apos; for all web pages.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.&lt;/p&gt;</solution>
+  <otherinfo>&lt;p&gt;This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.&lt;/p&gt;&lt;p&gt;At &quot;High&quot; threshold this scanner will not alert on client or server error responses.&lt;/p&gt;</otherinfo>
+  <reference>&lt;p&gt;http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx&lt;/p&gt;&lt;p&gt;https://www.owasp.org/index.php/List_of_useful_HTTP_headers&lt;/p&gt;</reference>
+  <cweid>16</cweid>
+  <wascid>15</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+</alerts></site><site name="http://localhost:9949" host="localhost" port="9949" ssl="false"><alerts><alertitem>
+  <pluginid>10017</pluginid>
+  <alert>Cross-Domain JavaScript Source File Inclusion</alert>
+  <name>Cross-Domain JavaScript Source File Inclusion</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;The page includes one or more script files from a third-party domain.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in?accountType=individual&amp;continue=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account%2Fdo-uplift%3FredirectUrl%3Dhttp%253A%252F%252Flocalhost%253A9232%252Fpersonal-account%252Fpreferences&amp;origin=PERTAX</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;);
+
+          var presets = [
+            {&quot;name&quot;: &quot;SA&quot;, &quot;key&quot;: &quot;IR-SA&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;CT&quot;, &quot;key&quot;: &quot;IR-CT&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;VAT&quot;, &quot;key&quot;: &quot;HMCE-VATDEC-ORG&quot;, &quot;identifiers&quot;: [&quot;VATRegNo&quot;]},
+            {&quot;name&quot;: &quot;ATED&quot;, &quot;key&quot;: &quot;HMRC-ATED-ORG&quot;, &quot;identifiers&quot;: [&quot;ATEDRefNumber&quot;]},
+            {&quot;name&quot;: &quot;AWRS&quot;, &quot;key&quot;: &quot;HMRC-AWRS-ORG&quot;, &quot;identifiers&quot;: [&quot;AWRSRefNumber&quot;]},
+            {&quot;name&quot;: &quot;PSA&quot;, &quot;key&quot;: &quot;HMRC-PSA-ORG&quot;, &quot;identifiers&quot;: [&quot;PSAID&quot;]},
+            {&quot;name&quot;: &quot;SA Agent&quot;, &quot;key&quot;: &quot;IR-SA-AGENT&quot;, &quot;identifiers&quot;: [&quot;IRAgentReference&quot;]},
+            {&quot;name&quot;: &quot;EPAYE&quot;, &quot;key&quot;: &quot;IR-PAYE&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]},
+            {&quot;name&quot;: &quot;EI&quot;, &quot;key&quot;: &quot;HMRC-EI-ORG&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]}
+          ];
+          $(document).ready(function () {
+            $(&apos;#js-add-enrolment&apos;).click(addEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-add-delegated-enrolment&apos;, addDelegatedEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-remove-delegated-enrolment&apos;, removeDelegatedEnrolment);
+            $(&apos;#affinityGroupSelect&apos;).change(showDelegatedEnrolmentIfAgentSelected);
+            $(&apos;#affinityGroupSelect&apos;).change(hideAssistantOptionIfIndividualSelected);
+
+            $(&apos;#add-preset&apos;).click(function () {
+              var selectedPresetKey = $(&apos;#presets-dropdown&apos;).val();
+              var selectedPreset = presets.filter(function (preset) {
+                return preset.key == selectedPresetKey;
+              });
+              if (selectedPreset.length &gt; 0) {
+                addEnrolment(selectedPreset[0].identifiers, selectedPreset[0].key);
+              }
+            });
+            var presetsDropdown = $(&quot;#presets-dropdown&quot;);
+            $.each(presets, function () {
+              presetsDropdown.append($(&quot;&lt;option /&gt;&quot;).val(this.key).text(this.name));
+            });
+          });
+
+          function addEnrolment(taxIdNames, key) {
+            if (key == undefined) {
+              key = &apos;&apos;;
+            }
+            taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+            var enrolmentId = $(&apos;#js-enrolments-table tr&apos;).length - 1;
+
+            var row = $(&apos;&lt;tr&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;enrolment[&apos; + enrolmentId + &apos;].name&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;td class=&quot;&apos; + createHookName(enrolmentId) + &apos;&quot;&gt;&apos; + enrolmentTaxIdentNameInput(enrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&apos; + enrolmentTaxIdentValueInput(enrolmentId, 0) +
+                    &apos;&lt;button id=&quot;&apos; + addIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                    &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;select name=&quot;enrolment[&apos; + enrolmentId + &apos;].state&quot;&gt; &lt;option&gt;Activated&lt;/option&gt;&lt;option&gt;NotYetActivated&lt;/option&gt;&lt;option&gt;Pending&lt;/option&gt;&lt;option&gt;HandedToAgent&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;/tr&gt;&apos;);
+
+            $(&apos;#js-enrolments-table tr:last&apos;).after(row);
+
+            var arrayLength = taxIdNames.length;
+            for (var i = 1; i &lt; arrayLength; i++) {
+              addTaxIdentifier(enrolmentId, taxIdNames[i]);
+            }
+
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).click(function () {
+              addTaxIdentifier(enrolmentId, &apos;&apos;);
+            });
+          }
+
+          function ensureMinimumTaxIdentifierNames(taxIdNames) {
+            if (taxIdNames.length == 0) {
+              taxIdNames[0] = &apos;&apos;;
+            }
+            return taxIdNames;
+          }
+
+          function addTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            var identifierCount = taxNameTD.children().length;
+
+            taxNameTD.append(enrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+            var addButton = $(&apos;#&apos; + addIdentifierButtonId(enrolmentId));
+            addButton.before(enrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+            if (identifierCount &gt; 0) {
+              if ($(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                addButton.after($(&apos;&lt;button id=&quot;&apos; + removeIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).click(function () {
+                  removeTaxIdentifier(enrolmentId, &apos;&apos;);
+                });
+              }
+            }
+          }
+
+          function removeTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            taxNameTD.children().last().remove();
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).prev().remove();
+            var identifierCount = taxNameTD.children().length;
+            if (identifierCount &lt; 2) {
+              var removeButton = $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId));
+              removeButton.off(&apos;click&apos;);
+              removeButton.remove();
+            }
+          }
+
+
+          function enrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+            return defaultInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function enrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+            return defaultInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function defaultInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+            return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                    &apos;name=&quot;enrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                    &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+            return &apos;input-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createHookName(enrolmentId) {
+            return &apos;hook-&apos; + enrolmentId;
+          }
+
+          function addIdentifierButtonId(enrolmentId) {
+            return &apos;add-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeIdentifierButtonId(enrolmentId) {
+            return &apos;remove-ident-btn-&apos; + enrolmentId;
+          }
+
+//          Delegated enrolments
+          function showDelegatedEnrolmentIfAgentSelected() {
+              if($(this).val() == &apos;Agent&apos;) {
+                  var delegatedEnrolmentsHtml = $(
+                          &apos;&lt;h3&gt;Delegated Enrolments:&lt;/h3&gt;&apos; +
+                          &apos;&lt;div class=&quot;form-group&quot; style=&quot;text-align: right&quot;&gt;&apos; +
+                          &apos;&lt;table id=&quot;js-delegated-enrolments-table&quot; class=&quot;&quot;&gt;&apos; +
+                          &apos;&lt;tr&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Enrolment Key&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Name&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Value&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Auth Rule&lt;/th&gt;&apos; +
+                          &apos;&lt;/tr&gt;&apos; +
+                          &apos;&lt;/table&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-add-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Add Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-remove-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Remove Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;/div&gt;&apos;
+                  );
+                  $(&apos;#delegated-enrolments-fields&apos;).append(delegatedEnrolmentsHtml);
+              }
+              else {
+                  $(&apos;#delegated-enrolments-fields&apos;).empty();
+              }
+          }
+
+          function hideAssistantOptionIfIndividualSelected() {
+              if($(this).val() == &apos;Individual&apos;) {
+                  if($(&apos;#credential-role-select option&apos;).length &gt; 1) {
+                      $(&quot;#credential-role-select option:last&quot;).remove();
+                  }
+              } else {
+                  if($(&apos;#credential-role-select option&apos;).length == 1) {
+                      var option = $(&apos;&lt;option&gt;&lt;/option&gt;&apos;).attr(&quot;value&quot;, &quot;Assistant&quot;).text(&quot;Assistant&quot;);
+                      $(&quot;#credential-role-select&quot;).append(option);
+                  }
+              }
+          }
+
+          function removeDelegatedEnrolment() {
+             if($(&apos;#js-delegated-enrolments-table tr&apos;).length &gt; 1) {
+                 $(&apos;#js-delegated-enrolments-table tr:last&apos;).remove()
+             }
+          }
+
+          function addDelegatedEnrolment(taxIdNames, key) {
+              if (key == undefined) {
+                  key = &apos;&apos;;
+              }
+              taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+              var delegatedEnrolmentId = $(&apos;#js-delegated-enrolments-table tr&apos;).length - 1;
+
+              var row = $(&apos;&lt;tr&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].key&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;td class=&quot;&apos; + createDelegatedHookName(delegatedEnrolmentId) + &apos;&quot;&gt;&apos; + delegatedEnrolmentTaxIdentNameInput(delegatedEnrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&apos; + delegatedEnrolmentTaxIdentValueInput(delegatedEnrolmentId, 0) +
+                      &apos;&lt;button id=&quot;&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                      &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].delegatedAuthRule&quot; /&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;/tr&gt;&apos;);
+
+              $(&apos;#js-delegated-enrolments-table tr:last&apos;).after(row);
+
+              var arrayLength = taxIdNames.length;
+              for (var i = 1; i &lt; arrayLength; i++) {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, taxIdNames[i]);
+              }
+
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId)).click(function () {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, &apos;&apos;);
+              });
+          }
+
+
+          function addDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              var identifierCount = taxNameTD.children().length;
+
+              taxNameTD.append(delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+              var addButton = $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId));
+              addButton.before(delegatedEnrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+              if (identifierCount &gt; 0) {
+                  if ($(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                      addButton.after($(&apos;&lt;button id=&quot;&apos; + removeDelegatedIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                      $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).click(function () {
+                          removeDelegatedTaxIdentifier(enrolmentId, &apos;&apos;);
+                      });
+                  }
+              }
+          }
+
+          function removeDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              taxNameTD.children().last().remove();
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId)).prev().remove();
+              var identifierCount = taxNameTD.children().length;
+              if (identifierCount &lt; 2) {
+                  var removeButton = $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId));
+                  removeButton.off(&apos;click&apos;);
+                  removeButton.remove();
+              }
+          }
+
+          function delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+              return delegatedEnrolmentInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function delegatedEnrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+              return delegatedEnrolmentInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function delegatedEnrolmentInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+              return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                      &apos;name=&quot;delegatedEnrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                      &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+              return &apos;input-delegated-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createDelegatedHookName(enrolmentId) {
+              return &apos;delegated-hook-&apos; + enrolmentId;
+          }
+
+          function addDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;add-delegated-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;remove-delegated-ident-btn-&apos; + enrolmentId;
+          }
+  &lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in</uri>
+  <method>POST</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;);
+
+          var presets = [
+            {&quot;name&quot;: &quot;SA&quot;, &quot;key&quot;: &quot;IR-SA&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;CT&quot;, &quot;key&quot;: &quot;IR-CT&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;VAT&quot;, &quot;key&quot;: &quot;HMCE-VATDEC-ORG&quot;, &quot;identifiers&quot;: [&quot;VATRegNo&quot;]},
+            {&quot;name&quot;: &quot;ATED&quot;, &quot;key&quot;: &quot;HMRC-ATED-ORG&quot;, &quot;identifiers&quot;: [&quot;ATEDRefNumber&quot;]},
+            {&quot;name&quot;: &quot;AWRS&quot;, &quot;key&quot;: &quot;HMRC-AWRS-ORG&quot;, &quot;identifiers&quot;: [&quot;AWRSRefNumber&quot;]},
+            {&quot;name&quot;: &quot;PSA&quot;, &quot;key&quot;: &quot;HMRC-PSA-ORG&quot;, &quot;identifiers&quot;: [&quot;PSAID&quot;]},
+            {&quot;name&quot;: &quot;SA Agent&quot;, &quot;key&quot;: &quot;IR-SA-AGENT&quot;, &quot;identifiers&quot;: [&quot;IRAgentReference&quot;]},
+            {&quot;name&quot;: &quot;EPAYE&quot;, &quot;key&quot;: &quot;IR-PAYE&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]},
+            {&quot;name&quot;: &quot;EI&quot;, &quot;key&quot;: &quot;HMRC-EI-ORG&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]}
+          ];
+          $(document).ready(function () {
+            $(&apos;#js-add-enrolment&apos;).click(addEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-add-delegated-enrolment&apos;, addDelegatedEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-remove-delegated-enrolment&apos;, removeDelegatedEnrolment);
+            $(&apos;#affinityGroupSelect&apos;).change(showDelegatedEnrolmentIfAgentSelected);
+            $(&apos;#affinityGroupSelect&apos;).change(hideAssistantOptionIfIndividualSelected);
+
+            $(&apos;#add-preset&apos;).click(function () {
+              var selectedPresetKey = $(&apos;#presets-dropdown&apos;).val();
+              var selectedPreset = presets.filter(function (preset) {
+                return preset.key == selectedPresetKey;
+              });
+              if (selectedPreset.length &gt; 0) {
+                addEnrolment(selectedPreset[0].identifiers, selectedPreset[0].key);
+              }
+            });
+            var presetsDropdown = $(&quot;#presets-dropdown&quot;);
+            $.each(presets, function () {
+              presetsDropdown.append($(&quot;&lt;option /&gt;&quot;).val(this.key).text(this.name));
+            });
+          });
+
+          function addEnrolment(taxIdNames, key) {
+            if (key == undefined) {
+              key = &apos;&apos;;
+            }
+            taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+            var enrolmentId = $(&apos;#js-enrolments-table tr&apos;).length - 1;
+
+            var row = $(&apos;&lt;tr&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;enrolment[&apos; + enrolmentId + &apos;].name&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;td class=&quot;&apos; + createHookName(enrolmentId) + &apos;&quot;&gt;&apos; + enrolmentTaxIdentNameInput(enrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&apos; + enrolmentTaxIdentValueInput(enrolmentId, 0) +
+                    &apos;&lt;button id=&quot;&apos; + addIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                    &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;select name=&quot;enrolment[&apos; + enrolmentId + &apos;].state&quot;&gt; &lt;option&gt;Activated&lt;/option&gt;&lt;option&gt;NotYetActivated&lt;/option&gt;&lt;option&gt;Pending&lt;/option&gt;&lt;option&gt;HandedToAgent&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;/tr&gt;&apos;);
+
+            $(&apos;#js-enrolments-table tr:last&apos;).after(row);
+
+            var arrayLength = taxIdNames.length;
+            for (var i = 1; i &lt; arrayLength; i++) {
+              addTaxIdentifier(enrolmentId, taxIdNames[i]);
+            }
+
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).click(function () {
+              addTaxIdentifier(enrolmentId, &apos;&apos;);
+            });
+          }
+
+          function ensureMinimumTaxIdentifierNames(taxIdNames) {
+            if (taxIdNames.length == 0) {
+              taxIdNames[0] = &apos;&apos;;
+            }
+            return taxIdNames;
+          }
+
+          function addTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            var identifierCount = taxNameTD.children().length;
+
+            taxNameTD.append(enrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+            var addButton = $(&apos;#&apos; + addIdentifierButtonId(enrolmentId));
+            addButton.before(enrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+            if (identifierCount &gt; 0) {
+              if ($(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                addButton.after($(&apos;&lt;button id=&quot;&apos; + removeIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).click(function () {
+                  removeTaxIdentifier(enrolmentId, &apos;&apos;);
+                });
+              }
+            }
+          }
+
+          function removeTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            taxNameTD.children().last().remove();
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).prev().remove();
+            var identifierCount = taxNameTD.children().length;
+            if (identifierCount &lt; 2) {
+              var removeButton = $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId));
+              removeButton.off(&apos;click&apos;);
+              removeButton.remove();
+            }
+          }
+
+
+          function enrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+            return defaultInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function enrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+            return defaultInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function defaultInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+            return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                    &apos;name=&quot;enrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                    &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+            return &apos;input-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createHookName(enrolmentId) {
+            return &apos;hook-&apos; + enrolmentId;
+          }
+
+          function addIdentifierButtonId(enrolmentId) {
+            return &apos;add-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeIdentifierButtonId(enrolmentId) {
+            return &apos;remove-ident-btn-&apos; + enrolmentId;
+          }
+
+//          Delegated enrolments
+          function showDelegatedEnrolmentIfAgentSelected() {
+              if($(this).val() == &apos;Agent&apos;) {
+                  var delegatedEnrolmentsHtml = $(
+                          &apos;&lt;h3&gt;Delegated Enrolments:&lt;/h3&gt;&apos; +
+                          &apos;&lt;div class=&quot;form-group&quot; style=&quot;text-align: right&quot;&gt;&apos; +
+                          &apos;&lt;table id=&quot;js-delegated-enrolments-table&quot; class=&quot;&quot;&gt;&apos; +
+                          &apos;&lt;tr&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Enrolment Key&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Name&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Value&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Auth Rule&lt;/th&gt;&apos; +
+                          &apos;&lt;/tr&gt;&apos; +
+                          &apos;&lt;/table&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-add-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Add Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-remove-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Remove Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;/div&gt;&apos;
+                  );
+                  $(&apos;#delegated-enrolments-fields&apos;).append(delegatedEnrolmentsHtml);
+              }
+              else {
+                  $(&apos;#delegated-enrolments-fields&apos;).empty();
+              }
+          }
+
+          function hideAssistantOptionIfIndividualSelected() {
+              if($(this).val() == &apos;Individual&apos;) {
+                  if($(&apos;#credential-role-select option&apos;).length &gt; 1) {
+                      $(&quot;#credential-role-select option:last&quot;).remove();
+                  }
+              } else {
+                  if($(&apos;#credential-role-select option&apos;).length == 1) {
+                      var option = $(&apos;&lt;option&gt;&lt;/option&gt;&apos;).attr(&quot;value&quot;, &quot;Assistant&quot;).text(&quot;Assistant&quot;);
+                      $(&quot;#credential-role-select&quot;).append(option);
+                  }
+              }
+          }
+
+          function removeDelegatedEnrolment() {
+             if($(&apos;#js-delegated-enrolments-table tr&apos;).length &gt; 1) {
+                 $(&apos;#js-delegated-enrolments-table tr:last&apos;).remove()
+             }
+          }
+
+          function addDelegatedEnrolment(taxIdNames, key) {
+              if (key == undefined) {
+                  key = &apos;&apos;;
+              }
+              taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+              var delegatedEnrolmentId = $(&apos;#js-delegated-enrolments-table tr&apos;).length - 1;
+
+              var row = $(&apos;&lt;tr&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].key&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;td class=&quot;&apos; + createDelegatedHookName(delegatedEnrolmentId) + &apos;&quot;&gt;&apos; + delegatedEnrolmentTaxIdentNameInput(delegatedEnrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&apos; + delegatedEnrolmentTaxIdentValueInput(delegatedEnrolmentId, 0) +
+                      &apos;&lt;button id=&quot;&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                      &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].delegatedAuthRule&quot; /&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;/tr&gt;&apos;);
+
+              $(&apos;#js-delegated-enrolments-table tr:last&apos;).after(row);
+
+              var arrayLength = taxIdNames.length;
+              for (var i = 1; i &lt; arrayLength; i++) {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, taxIdNames[i]);
+              }
+
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId)).click(function () {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, &apos;&apos;);
+              });
+          }
+
+
+          function addDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              var identifierCount = taxNameTD.children().length;
+
+              taxNameTD.append(delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+              var addButton = $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId));
+              addButton.before(delegatedEnrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+              if (identifierCount &gt; 0) {
+                  if ($(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                      addButton.after($(&apos;&lt;button id=&quot;&apos; + removeDelegatedIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                      $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).click(function () {
+                          removeDelegatedTaxIdentifier(enrolmentId, &apos;&apos;);
+                      });
+                  }
+              }
+          }
+
+          function removeDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              taxNameTD.children().last().remove();
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId)).prev().remove();
+              var identifierCount = taxNameTD.children().length;
+              if (identifierCount &lt; 2) {
+                  var removeButton = $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId));
+                  removeButton.off(&apos;click&apos;);
+                  removeButton.remove();
+              }
+          }
+
+          function delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+              return delegatedEnrolmentInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function delegatedEnrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+              return delegatedEnrolmentInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function delegatedEnrolmentInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+              return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                      &apos;name=&quot;delegatedEnrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                      &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+              return &apos;input-delegated-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createDelegatedHookName(enrolmentId) {
+              return &apos;delegated-hook-&apos; + enrolmentId;
+          }
+
+          function addDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;add-delegated-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;remove-delegated-ident-btn-&apos; + enrolmentId;
+          }
+  &lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;)&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in?accountType=individual&amp;continue=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account%2Fdo-uplift%3FredirectUrl%3Dhttp%253A%252F%252Flocalhost%253A9232%252Fpersonal-account&amp;origin=PERTAX</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;);
+
+          var presets = [
+            {&quot;name&quot;: &quot;SA&quot;, &quot;key&quot;: &quot;IR-SA&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;CT&quot;, &quot;key&quot;: &quot;IR-CT&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;VAT&quot;, &quot;key&quot;: &quot;HMCE-VATDEC-ORG&quot;, &quot;identifiers&quot;: [&quot;VATRegNo&quot;]},
+            {&quot;name&quot;: &quot;ATED&quot;, &quot;key&quot;: &quot;HMRC-ATED-ORG&quot;, &quot;identifiers&quot;: [&quot;ATEDRefNumber&quot;]},
+            {&quot;name&quot;: &quot;AWRS&quot;, &quot;key&quot;: &quot;HMRC-AWRS-ORG&quot;, &quot;identifiers&quot;: [&quot;AWRSRefNumber&quot;]},
+            {&quot;name&quot;: &quot;PSA&quot;, &quot;key&quot;: &quot;HMRC-PSA-ORG&quot;, &quot;identifiers&quot;: [&quot;PSAID&quot;]},
+            {&quot;name&quot;: &quot;SA Agent&quot;, &quot;key&quot;: &quot;IR-SA-AGENT&quot;, &quot;identifiers&quot;: [&quot;IRAgentReference&quot;]},
+            {&quot;name&quot;: &quot;EPAYE&quot;, &quot;key&quot;: &quot;IR-PAYE&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]},
+            {&quot;name&quot;: &quot;EI&quot;, &quot;key&quot;: &quot;HMRC-EI-ORG&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]}
+          ];
+          $(document).ready(function () {
+            $(&apos;#js-add-enrolment&apos;).click(addEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-add-delegated-enrolment&apos;, addDelegatedEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-remove-delegated-enrolment&apos;, removeDelegatedEnrolment);
+            $(&apos;#affinityGroupSelect&apos;).change(showDelegatedEnrolmentIfAgentSelected);
+            $(&apos;#affinityGroupSelect&apos;).change(hideAssistantOptionIfIndividualSelected);
+
+            $(&apos;#add-preset&apos;).click(function () {
+              var selectedPresetKey = $(&apos;#presets-dropdown&apos;).val();
+              var selectedPreset = presets.filter(function (preset) {
+                return preset.key == selectedPresetKey;
+              });
+              if (selectedPreset.length &gt; 0) {
+                addEnrolment(selectedPreset[0].identifiers, selectedPreset[0].key);
+              }
+            });
+            var presetsDropdown = $(&quot;#presets-dropdown&quot;);
+            $.each(presets, function () {
+              presetsDropdown.append($(&quot;&lt;option /&gt;&quot;).val(this.key).text(this.name));
+            });
+          });
+
+          function addEnrolment(taxIdNames, key) {
+            if (key == undefined) {
+              key = &apos;&apos;;
+            }
+            taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+            var enrolmentId = $(&apos;#js-enrolments-table tr&apos;).length - 1;
+
+            var row = $(&apos;&lt;tr&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;enrolment[&apos; + enrolmentId + &apos;].name&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;td class=&quot;&apos; + createHookName(enrolmentId) + &apos;&quot;&gt;&apos; + enrolmentTaxIdentNameInput(enrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&apos; + enrolmentTaxIdentValueInput(enrolmentId, 0) +
+                    &apos;&lt;button id=&quot;&apos; + addIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                    &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;select name=&quot;enrolment[&apos; + enrolmentId + &apos;].state&quot;&gt; &lt;option&gt;Activated&lt;/option&gt;&lt;option&gt;NotYetActivated&lt;/option&gt;&lt;option&gt;Pending&lt;/option&gt;&lt;option&gt;HandedToAgent&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;/tr&gt;&apos;);
+
+            $(&apos;#js-enrolments-table tr:last&apos;).after(row);
+
+            var arrayLength = taxIdNames.length;
+            for (var i = 1; i &lt; arrayLength; i++) {
+              addTaxIdentifier(enrolmentId, taxIdNames[i]);
+            }
+
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).click(function () {
+              addTaxIdentifier(enrolmentId, &apos;&apos;);
+            });
+          }
+
+          function ensureMinimumTaxIdentifierNames(taxIdNames) {
+            if (taxIdNames.length == 0) {
+              taxIdNames[0] = &apos;&apos;;
+            }
+            return taxIdNames;
+          }
+
+          function addTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            var identifierCount = taxNameTD.children().length;
+
+            taxNameTD.append(enrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+            var addButton = $(&apos;#&apos; + addIdentifierButtonId(enrolmentId));
+            addButton.before(enrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+            if (identifierCount &gt; 0) {
+              if ($(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                addButton.after($(&apos;&lt;button id=&quot;&apos; + removeIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).click(function () {
+                  removeTaxIdentifier(enrolmentId, &apos;&apos;);
+                });
+              }
+            }
+          }
+
+          function removeTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            taxNameTD.children().last().remove();
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).prev().remove();
+            var identifierCount = taxNameTD.children().length;
+            if (identifierCount &lt; 2) {
+              var removeButton = $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId));
+              removeButton.off(&apos;click&apos;);
+              removeButton.remove();
+            }
+          }
+
+
+          function enrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+            return defaultInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function enrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+            return defaultInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function defaultInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+            return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                    &apos;name=&quot;enrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                    &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+            return &apos;input-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createHookName(enrolmentId) {
+            return &apos;hook-&apos; + enrolmentId;
+          }
+
+          function addIdentifierButtonId(enrolmentId) {
+            return &apos;add-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeIdentifierButtonId(enrolmentId) {
+            return &apos;remove-ident-btn-&apos; + enrolmentId;
+          }
+
+//          Delegated enrolments
+          function showDelegatedEnrolmentIfAgentSelected() {
+              if($(this).val() == &apos;Agent&apos;) {
+                  var delegatedEnrolmentsHtml = $(
+                          &apos;&lt;h3&gt;Delegated Enrolments:&lt;/h3&gt;&apos; +
+                          &apos;&lt;div class=&quot;form-group&quot; style=&quot;text-align: right&quot;&gt;&apos; +
+                          &apos;&lt;table id=&quot;js-delegated-enrolments-table&quot; class=&quot;&quot;&gt;&apos; +
+                          &apos;&lt;tr&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Enrolment Key&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Name&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Value&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Auth Rule&lt;/th&gt;&apos; +
+                          &apos;&lt;/tr&gt;&apos; +
+                          &apos;&lt;/table&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-add-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Add Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-remove-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Remove Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;/div&gt;&apos;
+                  );
+                  $(&apos;#delegated-enrolments-fields&apos;).append(delegatedEnrolmentsHtml);
+              }
+              else {
+                  $(&apos;#delegated-enrolments-fields&apos;).empty();
+              }
+          }
+
+          function hideAssistantOptionIfIndividualSelected() {
+              if($(this).val() == &apos;Individual&apos;) {
+                  if($(&apos;#credential-role-select option&apos;).length &gt; 1) {
+                      $(&quot;#credential-role-select option:last&quot;).remove();
+                  }
+              } else {
+                  if($(&apos;#credential-role-select option&apos;).length == 1) {
+                      var option = $(&apos;&lt;option&gt;&lt;/option&gt;&apos;).attr(&quot;value&quot;, &quot;Assistant&quot;).text(&quot;Assistant&quot;);
+                      $(&quot;#credential-role-select&quot;).append(option);
+                  }
+              }
+          }
+
+          function removeDelegatedEnrolment() {
+             if($(&apos;#js-delegated-enrolments-table tr&apos;).length &gt; 1) {
+                 $(&apos;#js-delegated-enrolments-table tr:last&apos;).remove()
+             }
+          }
+
+          function addDelegatedEnrolment(taxIdNames, key) {
+              if (key == undefined) {
+                  key = &apos;&apos;;
+              }
+              taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+              var delegatedEnrolmentId = $(&apos;#js-delegated-enrolments-table tr&apos;).length - 1;
+
+              var row = $(&apos;&lt;tr&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].key&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;td class=&quot;&apos; + createDelegatedHookName(delegatedEnrolmentId) + &apos;&quot;&gt;&apos; + delegatedEnrolmentTaxIdentNameInput(delegatedEnrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&apos; + delegatedEnrolmentTaxIdentValueInput(delegatedEnrolmentId, 0) +
+                      &apos;&lt;button id=&quot;&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                      &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].delegatedAuthRule&quot; /&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;/tr&gt;&apos;);
+
+              $(&apos;#js-delegated-enrolments-table tr:last&apos;).after(row);
+
+              var arrayLength = taxIdNames.length;
+              for (var i = 1; i &lt; arrayLength; i++) {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, taxIdNames[i]);
+              }
+
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId)).click(function () {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, &apos;&apos;);
+              });
+          }
+
+
+          function addDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              var identifierCount = taxNameTD.children().length;
+
+              taxNameTD.append(delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+              var addButton = $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId));
+              addButton.before(delegatedEnrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+              if (identifierCount &gt; 0) {
+                  if ($(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                      addButton.after($(&apos;&lt;button id=&quot;&apos; + removeDelegatedIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                      $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).click(function () {
+                          removeDelegatedTaxIdentifier(enrolmentId, &apos;&apos;);
+                      });
+                  }
+              }
+          }
+
+          function removeDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              taxNameTD.children().last().remove();
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId)).prev().remove();
+              var identifierCount = taxNameTD.children().length;
+              if (identifierCount &lt; 2) {
+                  var removeButton = $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId));
+                  removeButton.off(&apos;click&apos;);
+                  removeButton.remove();
+              }
+          }
+
+          function delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+              return delegatedEnrolmentInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function delegatedEnrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+              return delegatedEnrolmentInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function delegatedEnrolmentInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+              return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                      &apos;name=&quot;delegatedEnrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                      &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+              return &apos;input-delegated-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createDelegatedHookName(enrolmentId) {
+              return &apos;delegated-hook-&apos; + enrolmentId;
+          }
+
+          function addDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;add-delegated-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;remove-delegated-ident-btn-&apos; + enrolmentId;
+          }
+  &lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;);
+
+          var presets = [
+            {&quot;name&quot;: &quot;SA&quot;, &quot;key&quot;: &quot;IR-SA&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;CT&quot;, &quot;key&quot;: &quot;IR-CT&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;VAT&quot;, &quot;key&quot;: &quot;HMCE-VATDEC-ORG&quot;, &quot;identifiers&quot;: [&quot;VATRegNo&quot;]},
+            {&quot;name&quot;: &quot;ATED&quot;, &quot;key&quot;: &quot;HMRC-ATED-ORG&quot;, &quot;identifiers&quot;: [&quot;ATEDRefNumber&quot;]},
+            {&quot;name&quot;: &quot;AWRS&quot;, &quot;key&quot;: &quot;HMRC-AWRS-ORG&quot;, &quot;identifiers&quot;: [&quot;AWRSRefNumber&quot;]},
+            {&quot;name&quot;: &quot;PSA&quot;, &quot;key&quot;: &quot;HMRC-PSA-ORG&quot;, &quot;identifiers&quot;: [&quot;PSAID&quot;]},
+            {&quot;name&quot;: &quot;SA Agent&quot;, &quot;key&quot;: &quot;IR-SA-AGENT&quot;, &quot;identifiers&quot;: [&quot;IRAgentReference&quot;]},
+            {&quot;name&quot;: &quot;EPAYE&quot;, &quot;key&quot;: &quot;IR-PAYE&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]},
+            {&quot;name&quot;: &quot;EI&quot;, &quot;key&quot;: &quot;HMRC-EI-ORG&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]}
+          ];
+          $(document).ready(function () {
+            $(&apos;#js-add-enrolment&apos;).click(addEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-add-delegated-enrolment&apos;, addDelegatedEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-remove-delegated-enrolment&apos;, removeDelegatedEnrolment);
+            $(&apos;#affinityGroupSelect&apos;).change(showDelegatedEnrolmentIfAgentSelected);
+            $(&apos;#affinityGroupSelect&apos;).change(hideAssistantOptionIfIndividualSelected);
+
+            $(&apos;#add-preset&apos;).click(function () {
+              var selectedPresetKey = $(&apos;#presets-dropdown&apos;).val();
+              var selectedPreset = presets.filter(function (preset) {
+                return preset.key == selectedPresetKey;
+              });
+              if (selectedPreset.length &gt; 0) {
+                addEnrolment(selectedPreset[0].identifiers, selectedPreset[0].key);
+              }
+            });
+            var presetsDropdown = $(&quot;#presets-dropdown&quot;);
+            $.each(presets, function () {
+              presetsDropdown.append($(&quot;&lt;option /&gt;&quot;).val(this.key).text(this.name));
+            });
+          });
+
+          function addEnrolment(taxIdNames, key) {
+            if (key == undefined) {
+              key = &apos;&apos;;
+            }
+            taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+            var enrolmentId = $(&apos;#js-enrolments-table tr&apos;).length - 1;
+
+            var row = $(&apos;&lt;tr&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;enrolment[&apos; + enrolmentId + &apos;].name&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;td class=&quot;&apos; + createHookName(enrolmentId) + &apos;&quot;&gt;&apos; + enrolmentTaxIdentNameInput(enrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&apos; + enrolmentTaxIdentValueInput(enrolmentId, 0) +
+                    &apos;&lt;button id=&quot;&apos; + addIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                    &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;select name=&quot;enrolment[&apos; + enrolmentId + &apos;].state&quot;&gt; &lt;option&gt;Activated&lt;/option&gt;&lt;option&gt;NotYetActivated&lt;/option&gt;&lt;option&gt;Pending&lt;/option&gt;&lt;option&gt;HandedToAgent&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;/tr&gt;&apos;);
+
+            $(&apos;#js-enrolments-table tr:last&apos;).after(row);
+
+            var arrayLength = taxIdNames.length;
+            for (var i = 1; i &lt; arrayLength; i++) {
+              addTaxIdentifier(enrolmentId, taxIdNames[i]);
+            }
+
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).click(function () {
+              addTaxIdentifier(enrolmentId, &apos;&apos;);
+            });
+          }
+
+          function ensureMinimumTaxIdentifierNames(taxIdNames) {
+            if (taxIdNames.length == 0) {
+              taxIdNames[0] = &apos;&apos;;
+            }
+            return taxIdNames;
+          }
+
+          function addTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            var identifierCount = taxNameTD.children().length;
+
+            taxNameTD.append(enrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+            var addButton = $(&apos;#&apos; + addIdentifierButtonId(enrolmentId));
+            addButton.before(enrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+            if (identifierCount &gt; 0) {
+              if ($(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                addButton.after($(&apos;&lt;button id=&quot;&apos; + removeIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).click(function () {
+                  removeTaxIdentifier(enrolmentId, &apos;&apos;);
+                });
+              }
+            }
+          }
+
+          function removeTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            taxNameTD.children().last().remove();
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).prev().remove();
+            var identifierCount = taxNameTD.children().length;
+            if (identifierCount &lt; 2) {
+              var removeButton = $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId));
+              removeButton.off(&apos;click&apos;);
+              removeButton.remove();
+            }
+          }
+
+
+          function enrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+            return defaultInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function enrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+            return defaultInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function defaultInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+            return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                    &apos;name=&quot;enrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                    &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+            return &apos;input-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createHookName(enrolmentId) {
+            return &apos;hook-&apos; + enrolmentId;
+          }
+
+          function addIdentifierButtonId(enrolmentId) {
+            return &apos;add-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeIdentifierButtonId(enrolmentId) {
+            return &apos;remove-ident-btn-&apos; + enrolmentId;
+          }
+
+//          Delegated enrolments
+          function showDelegatedEnrolmentIfAgentSelected() {
+              if($(this).val() == &apos;Agent&apos;) {
+                  var delegatedEnrolmentsHtml = $(
+                          &apos;&lt;h3&gt;Delegated Enrolments:&lt;/h3&gt;&apos; +
+                          &apos;&lt;div class=&quot;form-group&quot; style=&quot;text-align: right&quot;&gt;&apos; +
+                          &apos;&lt;table id=&quot;js-delegated-enrolments-table&quot; class=&quot;&quot;&gt;&apos; +
+                          &apos;&lt;tr&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Enrolment Key&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Name&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Value&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Auth Rule&lt;/th&gt;&apos; +
+                          &apos;&lt;/tr&gt;&apos; +
+                          &apos;&lt;/table&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-add-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Add Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-remove-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Remove Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;/div&gt;&apos;
+                  );
+                  $(&apos;#delegated-enrolments-fields&apos;).append(delegatedEnrolmentsHtml);
+              }
+              else {
+                  $(&apos;#delegated-enrolments-fields&apos;).empty();
+              }
+          }
+
+          function hideAssistantOptionIfIndividualSelected() {
+              if($(this).val() == &apos;Individual&apos;) {
+                  if($(&apos;#credential-role-select option&apos;).length &gt; 1) {
+                      $(&quot;#credential-role-select option:last&quot;).remove();
+                  }
+              } else {
+                  if($(&apos;#credential-role-select option&apos;).length == 1) {
+                      var option = $(&apos;&lt;option&gt;&lt;/option&gt;&apos;).attr(&quot;value&quot;, &quot;Assistant&quot;).text(&quot;Assistant&quot;);
+                      $(&quot;#credential-role-select&quot;).append(option);
+                  }
+              }
+          }
+
+          function removeDelegatedEnrolment() {
+             if($(&apos;#js-delegated-enrolments-table tr&apos;).length &gt; 1) {
+                 $(&apos;#js-delegated-enrolments-table tr:last&apos;).remove()
+             }
+          }
+
+          function addDelegatedEnrolment(taxIdNames, key) {
+              if (key == undefined) {
+                  key = &apos;&apos;;
+              }
+              taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+              var delegatedEnrolmentId = $(&apos;#js-delegated-enrolments-table tr&apos;).length - 1;
+
+              var row = $(&apos;&lt;tr&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].key&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;td class=&quot;&apos; + createDelegatedHookName(delegatedEnrolmentId) + &apos;&quot;&gt;&apos; + delegatedEnrolmentTaxIdentNameInput(delegatedEnrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&apos; + delegatedEnrolmentTaxIdentValueInput(delegatedEnrolmentId, 0) +
+                      &apos;&lt;button id=&quot;&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                      &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].delegatedAuthRule&quot; /&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;/tr&gt;&apos;);
+
+              $(&apos;#js-delegated-enrolments-table tr:last&apos;).after(row);
+
+              var arrayLength = taxIdNames.length;
+              for (var i = 1; i &lt; arrayLength; i++) {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, taxIdNames[i]);
+              }
+
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId)).click(function () {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, &apos;&apos;);
+              });
+          }
+
+
+          function addDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              var identifierCount = taxNameTD.children().length;
+
+              taxNameTD.append(delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+              var addButton = $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId));
+              addButton.before(delegatedEnrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+              if (identifierCount &gt; 0) {
+                  if ($(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                      addButton.after($(&apos;&lt;button id=&quot;&apos; + removeDelegatedIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                      $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).click(function () {
+                          removeDelegatedTaxIdentifier(enrolmentId, &apos;&apos;);
+                      });
+                  }
+              }
+          }
+
+          function removeDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              taxNameTD.children().last().remove();
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId)).prev().remove();
+              var identifierCount = taxNameTD.children().length;
+              if (identifierCount &lt; 2) {
+                  var removeButton = $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId));
+                  removeButton.off(&apos;click&apos;);
+                  removeButton.remove();
+              }
+          }
+
+          function delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+              return delegatedEnrolmentInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function delegatedEnrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+              return delegatedEnrolmentInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function delegatedEnrolmentInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+              return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                      &apos;name=&quot;delegatedEnrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                      &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+              return &apos;input-delegated-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createDelegatedHookName(enrolmentId) {
+              return &apos;delegated-hook-&apos; + enrolmentId;
+          }
+
+          function addDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;add-delegated-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;remove-delegated-ident-btn-&apos; + enrolmentId;
+          }
+  &lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in?accountType=individual&amp;continue=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account%2Fdo-uplift%3FredirectUrl%3Dhttp%253A%252F%252Flocalhost%253A9232%252Fpersonal-account%252Fpersonal-details&amp;origin=PERTAX</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;);
+
+          var presets = [
+            {&quot;name&quot;: &quot;SA&quot;, &quot;key&quot;: &quot;IR-SA&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;CT&quot;, &quot;key&quot;: &quot;IR-CT&quot;, &quot;identifiers&quot;: [&quot;UTR&quot;]},
+            {&quot;name&quot;: &quot;VAT&quot;, &quot;key&quot;: &quot;HMCE-VATDEC-ORG&quot;, &quot;identifiers&quot;: [&quot;VATRegNo&quot;]},
+            {&quot;name&quot;: &quot;ATED&quot;, &quot;key&quot;: &quot;HMRC-ATED-ORG&quot;, &quot;identifiers&quot;: [&quot;ATEDRefNumber&quot;]},
+            {&quot;name&quot;: &quot;AWRS&quot;, &quot;key&quot;: &quot;HMRC-AWRS-ORG&quot;, &quot;identifiers&quot;: [&quot;AWRSRefNumber&quot;]},
+            {&quot;name&quot;: &quot;PSA&quot;, &quot;key&quot;: &quot;HMRC-PSA-ORG&quot;, &quot;identifiers&quot;: [&quot;PSAID&quot;]},
+            {&quot;name&quot;: &quot;SA Agent&quot;, &quot;key&quot;: &quot;IR-SA-AGENT&quot;, &quot;identifiers&quot;: [&quot;IRAgentReference&quot;]},
+            {&quot;name&quot;: &quot;EPAYE&quot;, &quot;key&quot;: &quot;IR-PAYE&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]},
+            {&quot;name&quot;: &quot;EI&quot;, &quot;key&quot;: &quot;HMRC-EI-ORG&quot;, &quot;identifiers&quot;: [&quot;TaxOfficeNumber&quot;, &quot;TaxOfficeReference&quot;]}
+          ];
+          $(document).ready(function () {
+            $(&apos;#js-add-enrolment&apos;).click(addEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-add-delegated-enrolment&apos;, addDelegatedEnrolment);
+            $(&apos;#delegated-enrolments-fields&apos;).on(&apos;click&apos;, &apos;#js-remove-delegated-enrolment&apos;, removeDelegatedEnrolment);
+            $(&apos;#affinityGroupSelect&apos;).change(showDelegatedEnrolmentIfAgentSelected);
+            $(&apos;#affinityGroupSelect&apos;).change(hideAssistantOptionIfIndividualSelected);
+
+            $(&apos;#add-preset&apos;).click(function () {
+              var selectedPresetKey = $(&apos;#presets-dropdown&apos;).val();
+              var selectedPreset = presets.filter(function (preset) {
+                return preset.key == selectedPresetKey;
+              });
+              if (selectedPreset.length &gt; 0) {
+                addEnrolment(selectedPreset[0].identifiers, selectedPreset[0].key);
+              }
+            });
+            var presetsDropdown = $(&quot;#presets-dropdown&quot;);
+            $.each(presets, function () {
+              presetsDropdown.append($(&quot;&lt;option /&gt;&quot;).val(this.key).text(this.name));
+            });
+          });
+
+          function addEnrolment(taxIdNames, key) {
+            if (key == undefined) {
+              key = &apos;&apos;;
+            }
+            taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+            var enrolmentId = $(&apos;#js-enrolments-table tr&apos;).length - 1;
+
+            var row = $(&apos;&lt;tr&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;enrolment[&apos; + enrolmentId + &apos;].name&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;td class=&quot;&apos; + createHookName(enrolmentId) + &apos;&quot;&gt;&apos; + enrolmentTaxIdentNameInput(enrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&apos; + enrolmentTaxIdentValueInput(enrolmentId, 0) +
+                    &apos;&lt;button id=&quot;&apos; + addIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                    &apos;&lt;/td&gt;&apos; +
+                    &apos;&lt;td&gt;&lt;select name=&quot;enrolment[&apos; + enrolmentId + &apos;].state&quot;&gt; &lt;option&gt;Activated&lt;/option&gt;&lt;option&gt;NotYetActivated&lt;/option&gt;&lt;option&gt;Pending&lt;/option&gt;&lt;option&gt;HandedToAgent&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;&apos; +
+                    &apos;&lt;/tr&gt;&apos;);
+
+            $(&apos;#js-enrolments-table tr:last&apos;).after(row);
+
+            var arrayLength = taxIdNames.length;
+            for (var i = 1; i &lt; arrayLength; i++) {
+              addTaxIdentifier(enrolmentId, taxIdNames[i]);
+            }
+
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).click(function () {
+              addTaxIdentifier(enrolmentId, &apos;&apos;);
+            });
+          }
+
+          function ensureMinimumTaxIdentifierNames(taxIdNames) {
+            if (taxIdNames.length == 0) {
+              taxIdNames[0] = &apos;&apos;;
+            }
+            return taxIdNames;
+          }
+
+          function addTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            var identifierCount = taxNameTD.children().length;
+
+            taxNameTD.append(enrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+            var addButton = $(&apos;#&apos; + addIdentifierButtonId(enrolmentId));
+            addButton.before(enrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+            if (identifierCount &gt; 0) {
+              if ($(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                addButton.after($(&apos;&lt;button id=&quot;&apos; + removeIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId)).click(function () {
+                  removeTaxIdentifier(enrolmentId, &apos;&apos;);
+                });
+              }
+            }
+          }
+
+          function removeTaxIdentifier(enrolmentId, identifierName) {
+            var taxNameTD = $(&apos;.&apos; + createHookName(enrolmentId));
+            taxNameTD.children().last().remove();
+            $(&apos;#&apos; + addIdentifierButtonId(enrolmentId)).prev().remove();
+            var identifierCount = taxNameTD.children().length;
+            if (identifierCount &lt; 2) {
+              var removeButton = $(&apos;#&apos; + removeIdentifierButtonId(enrolmentId));
+              removeButton.off(&apos;click&apos;);
+              removeButton.remove();
+            }
+          }
+
+
+          function enrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+            return defaultInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function enrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+            return defaultInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function defaultInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+            return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                    &apos;name=&quot;enrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                    &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+            return &apos;input-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createHookName(enrolmentId) {
+            return &apos;hook-&apos; + enrolmentId;
+          }
+
+          function addIdentifierButtonId(enrolmentId) {
+            return &apos;add-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeIdentifierButtonId(enrolmentId) {
+            return &apos;remove-ident-btn-&apos; + enrolmentId;
+          }
+
+//          Delegated enrolments
+          function showDelegatedEnrolmentIfAgentSelected() {
+              if($(this).val() == &apos;Agent&apos;) {
+                  var delegatedEnrolmentsHtml = $(
+                          &apos;&lt;h3&gt;Delegated Enrolments:&lt;/h3&gt;&apos; +
+                          &apos;&lt;div class=&quot;form-group&quot; style=&quot;text-align: right&quot;&gt;&apos; +
+                          &apos;&lt;table id=&quot;js-delegated-enrolments-table&quot; class=&quot;&quot;&gt;&apos; +
+                          &apos;&lt;tr&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Enrolment Key&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Name&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Identifier Value&lt;/th&gt;&apos; +
+                          &apos;&lt;th&gt;Delegated Auth Rule&lt;/th&gt;&apos; +
+                          &apos;&lt;/tr&gt;&apos; +
+                          &apos;&lt;/table&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-add-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Add Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;button id=&quot;js-remove-delegated-enrolment&quot; type=&quot;button&quot; class=&quot;button button--secondary&quot; style=&quot;margin-top: -20px&quot;&gt;&apos; +
+                          &apos;Remove Delegated Enrolment&apos; +
+                          &apos;&lt;/button&gt;&apos; +
+                          &apos;&lt;/div&gt;&apos;
+                  );
+                  $(&apos;#delegated-enrolments-fields&apos;).append(delegatedEnrolmentsHtml);
+              }
+              else {
+                  $(&apos;#delegated-enrolments-fields&apos;).empty();
+              }
+          }
+
+          function hideAssistantOptionIfIndividualSelected() {
+              if($(this).val() == &apos;Individual&apos;) {
+                  if($(&apos;#credential-role-select option&apos;).length &gt; 1) {
+                      $(&quot;#credential-role-select option:last&quot;).remove();
+                  }
+              } else {
+                  if($(&apos;#credential-role-select option&apos;).length == 1) {
+                      var option = $(&apos;&lt;option&gt;&lt;/option&gt;&apos;).attr(&quot;value&quot;, &quot;Assistant&quot;).text(&quot;Assistant&quot;);
+                      $(&quot;#credential-role-select&quot;).append(option);
+                  }
+              }
+          }
+
+          function removeDelegatedEnrolment() {
+             if($(&apos;#js-delegated-enrolments-table tr&apos;).length &gt; 1) {
+                 $(&apos;#js-delegated-enrolments-table tr:last&apos;).remove()
+             }
+          }
+
+          function addDelegatedEnrolment(taxIdNames, key) {
+              if (key == undefined) {
+                  key = &apos;&apos;;
+              }
+              taxIdNames = ensureMinimumTaxIdentifierNames(taxIdNames);
+
+              var delegatedEnrolmentId = $(&apos;#js-delegated-enrolments-table tr&apos;).length - 1;
+
+              var row = $(&apos;&lt;tr&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].key&quot; maxlength=&quot;30&quot; value=&quot;&apos; + key + &apos;&quot;/&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;td class=&quot;&apos; + createDelegatedHookName(delegatedEnrolmentId) + &apos;&quot;&gt;&apos; + delegatedEnrolmentTaxIdentNameInput(delegatedEnrolmentId, 0, taxIdNames[0]) + &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&apos; + delegatedEnrolmentTaxIdentValueInput(delegatedEnrolmentId, 0) +
+                      &apos;&lt;button id=&quot;&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button plus-button&quot;&gt;&lt;span&gt;+&lt;/span&gt;&lt;/button&gt;&apos; +
+                      &apos;&lt;/td&gt;&apos; +
+                      &apos;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;delegatedEnrolment[&apos; + delegatedEnrolmentId + &apos;].delegatedAuthRule&quot; /&gt;&lt;/td&gt;&apos; +
+                      &apos;&lt;/tr&gt;&apos;);
+
+              $(&apos;#js-delegated-enrolments-table tr:last&apos;).after(row);
+
+              var arrayLength = taxIdNames.length;
+              for (var i = 1; i &lt; arrayLength; i++) {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, taxIdNames[i]);
+              }
+
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(delegatedEnrolmentId)).click(function () {
+                  addDelegatedTaxIdentifier(delegatedEnrolmentId, &apos;&apos;);
+              });
+          }
+
+
+          function addDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              var identifierCount = taxNameTD.children().length;
+
+              taxNameTD.append(delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierCount, identifierName));
+              var addButton = $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId));
+              addButton.before(delegatedEnrolmentTaxIdentValueInput(enrolmentId, identifierCount));
+              if (identifierCount &gt; 0) {
+                  if ($(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).length &lt; 1) {
+                      addButton.after($(&apos;&lt;button id=&quot;&apos; + removeDelegatedIdentifierButtonId(enrolmentId) + &apos;&quot; type=&quot;button&quot; class=&quot;button minus-button&quot;&gt;&lt;span&gt;-&lt;/span&gt;&lt;/button&gt;&apos;));
+                      $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId)).click(function () {
+                          removeDelegatedTaxIdentifier(enrolmentId, &apos;&apos;);
+                      });
+                  }
+              }
+          }
+
+          function removeDelegatedTaxIdentifier(enrolmentId, identifierName) {
+              var taxNameTD = $(&apos;.&apos; + createDelegatedHookName(enrolmentId));
+              taxNameTD.children().last().remove();
+              $(&apos;#&apos; + addDelegatedIdentifierButtonId(enrolmentId)).prev().remove();
+              var identifierCount = taxNameTD.children().length;
+              if (identifierCount &lt; 2) {
+                  var removeButton = $(&apos;#&apos; + removeDelegatedIdentifierButtonId(enrolmentId));
+                  removeButton.off(&apos;click&apos;);
+                  removeButton.remove();
+              }
+          }
+
+          function delegatedEnrolmentTaxIdentNameInput(enrolmentId, identifierId, identifierName) {
+              return delegatedEnrolmentInput(enrolmentId, identifierId, &apos;name&apos;, identifierName == undefined ? &apos;&apos; : identifierName);
+          }
+
+          function delegatedEnrolmentTaxIdentValueInput(enrolmentId, taxIdentifierId) {
+              return delegatedEnrolmentInput(enrolmentId, taxIdentifierId, &apos;value&apos;);
+          }
+
+          function delegatedEnrolmentInput(enrolmentId, taxIdentifierId, fieldName, fieldValue) {
+              return &apos;&lt;input type=&quot;text&quot; id=&quot;&apos; + createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) + &apos;&quot; &apos; +
+                      &apos;name=&quot;delegatedEnrolment[&apos; + enrolmentId + &apos;].taxIdentifier[&apos; + taxIdentifierId + &apos;].&apos; + fieldName + &apos;&quot; &apos; +
+                      &apos;class=&quot;tax-ident&quot; maxlength=&quot;30&quot; value=&quot;&apos; + (fieldValue == undefined ? &apos;&apos; : fieldValue) + &apos;&quot;/&gt;&apos;;
+          }
+
+          function createDelegatedInputFieldIdentifier(enrolmentId, taxIdentifierId, fieldName) {
+              return &apos;input-delegated-&apos; + enrolmentId + &apos;-&apos; + taxIdentifierId + &apos;-&apos; + fieldName;
+          }
+
+          function createDelegatedHookName(enrolmentId) {
+              return &apos;delegated-hook-&apos; + enrolmentId;
+          }
+
+          function addDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;add-delegated-ident-btn-&apos; + enrolmentId;
+          }
+
+          function removeDelegatedIdentifierButtonId(enrolmentId) {
+              return &apos;remove-delegated-ident-btn-&apos; + enrolmentId;
+          }
+  &lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in?accountType=individual&amp;continue=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account%2Fdo-uplift%3FredirectUrl%3Dhttp%253A%252F%252Flocalhost%253A9232%252Fpersonal-account&amp;origin=PERTAX</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;)&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in?accountType=individual&amp;continue=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account%2Fdo-uplift%3FredirectUrl%3Dhttp%253A%252F%252Flocalhost%253A9232%252Fpersonal-account%252Fpreferences&amp;origin=PERTAX</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;)&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in?accountType=individual&amp;continue=http%3A%2F%2Flocalhost%3A9232%2Fpersonal-account%2Fdo-uplift%3FredirectUrl%3Dhttp%253A%252F%252Flocalhost%253A9232%252Fpersonal-account%252Fpersonal-details&amp;origin=PERTAX</uri>
+  <method>GET</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;)&lt;/script&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://localhost:9949/auth-login-stub/gg-sign-in</uri>
+  <method>POST</method>
+  <param>https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js</param>
+  <evidence>&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js&quot;&gt;\x3C/script&gt;&apos;)&lt;/script&gt;</evidence>
+  </instance>
+  </instances>
+  <count>10</count>
+  <solution>&lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can&apos;t be controlled by end users of the application.&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;&lt;/p&gt;</reference>
+  <cweid>829</cweid>
+  <wascid>15</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+</alerts></site></OWASPZAPReport>

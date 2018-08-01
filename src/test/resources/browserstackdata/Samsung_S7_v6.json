@@ -1,0 +1,7 @@
+{
+  "platform" : "ANDROID",
+  "device" : "Samsung Galaxy S7",
+  "realMobile": "true",
+  "os": "android",
+  "os_version": "6.0"
+}

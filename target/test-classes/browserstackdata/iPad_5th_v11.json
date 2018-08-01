@@ -1,0 +1,8 @@
+{
+  "os": "iOS",
+  "os_version": "11.0",
+  "device": "iPad 5th",
+  "real_mobile": "true",
+  "browserName": "iPad",
+  "browserstack.local": "false"
+}
